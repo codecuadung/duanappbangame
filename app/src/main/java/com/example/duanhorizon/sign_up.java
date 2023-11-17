@@ -68,7 +68,7 @@ public class sign_up extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Thêm thất bại!",Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });`
         btncancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

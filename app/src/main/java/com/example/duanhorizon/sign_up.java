@@ -13,10 +13,11 @@ import com.example.duanhorizon.DAO.NguoiDungDAO;
 import com.example.duanhorizon.model.NguoiDung;
 
 public class sign_up extends AppCompatActivity {
-    EditText edUserdk,edPassdk,edRePassdk,edmaUser;
+    EditText edUserdk, edPassdk, edRePassdk, edmaUser;
     Button btndk, btncancel;
     NguoiDungDAO nguoiDungDAO;
     NguoiDung nguoiDung;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +37,12 @@ public class sign_up extends AppCompatActivity {
                 String pass = edPassdk.getText().toString();
                 String repass = edRePassdk.getText().toString();
                 nguoiDungDAO = new NguoiDungDAO(getApplicationContext());
-                if(mauser.isEmpty()||user.isEmpty()||pass.isEmpty()||repass.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Vui lòng điển đầy đủ thông tin!",Toast.LENGTH_SHORT).show();
+                if (mauser.isEmpty() || user.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Vui lòng điển đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!pass.equals(repass)){
-                    Toast.makeText(getApplicationContext(),"Mật khẩu không khớp!",Toast.LENGTH_SHORT).show();
+                if (!pass.equals(repass)) {
+                    Toast.makeText(getApplicationContext(), "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (nguoiDungDAO.checkUserExists(mauser)) {
@@ -56,19 +57,19 @@ public class sign_up extends AppCompatActivity {
 
 
                 long result = nguoiDungDAO.insert(nguoiDung);
-                if(result != -1){
-                    Toast.makeText(getApplicationContext(),"Thêm thành công!",Toast.LENGTH_SHORT).show();
+                if (result != -1) {
+                    Toast.makeText(getApplicationContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
                     edmaUser.setText("");
                     edPassdk.setText("");
                     edUserdk.setText("");
                     edRePassdk.setText("");
                     startActivity(new Intent(sign_up.this, login.class));
                     finish();
-                }else {
-                    Toast.makeText(getApplicationContext(),"Thêm thất bại!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Thêm thất bại!", Toast.LENGTH_SHORT).show();
                 }
             }
-        });`
+        });
         btncancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

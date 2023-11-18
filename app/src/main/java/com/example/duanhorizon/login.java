@@ -15,10 +15,11 @@ import com.example.duanhorizon.DAO.NguoiDungDAO;
 
 public class login extends AppCompatActivity {
     EditText edUserName, edPassword;
-    Button btnLogin, btnCancel,btndangky;
+    Button btnLogin, btnCancel, btndangky;
     CheckBox chkRememberPass;
     String strUser, strPass;
     NguoiDungDAO dao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +33,10 @@ public class login extends AppCompatActivity {
         chkRememberPass = findViewById(R.id.chkRememberPass);
         dao = new NguoiDungDAO(this);
 
-        SharedPreferences pref = getSharedPreferences("USER_FILE",MODE_PRIVATE);
-        String user = pref.getString("USERNAME","");
-        String pass = pref.getString("PASSWORD","");
-        Boolean rem = pref.getBoolean("REMEMBER",false);
+        SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        String user = pref.getString("USERNAME", "");
+        String pass = pref.getString("PASSWORD", "");
+        Boolean rem = pref.getBoolean("REMEMBER", false);
 
         edUserName.setText(user);
         edPassword.setText(pass);
@@ -43,7 +44,7 @@ public class login extends AppCompatActivity {
         btndangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(login.this,sign_up.class));
+                startActivity(new Intent(login.this, sign_up.class));
             }
         });
 
@@ -61,36 +62,38 @@ public class login extends AppCompatActivity {
             }
         });
     }
-    public void rememberUser(String u, String p, boolean status){
+
+    public void rememberUser(String u, String p, boolean status) {
         SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
         SharedPreferences.Editor edit = pref.edit();
-        if(!status){
+        if (!status) {
             //Xóa tính trạng trước đó
             edit.clear();
-        }else {
+        } else {
             //Lưu dữ liệu
-            edit.putString("USERNAME",u);
-            edit.putString("PASSWORD",p);
-            edit.putBoolean("REMEMBER",status);
+            edit.putString("USERNAME", u);
+            edit.putString("PASSWORD", p);
+            edit.putBoolean("REMEMBER", status);
         }
         //lưu all
         edit.commit();
     }
-    public void checkLogin(){
+
+    public void checkLogin() {
         strPass = edPassword.getText().toString();
         strUser = edUserName.getText().toString();
-        if(strUser.isEmpty()||strPass.isEmpty()){
-            Toast.makeText(getApplicationContext(),"Tên đăng nhập và mật khẩu không được bỏ trống",Toast.LENGTH_SHORT).show();
-        }else {
-            if(dao.checkLogin(strUser,strPass)>0){
-                Toast.makeText(getApplicationContext(),"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                rememberUser(strUser,strPass,chkRememberPass.isChecked());
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                intent.putExtra("user",strUser);
+        if (strUser.isEmpty() || strPass.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Tên đăng nhập và mật khẩu không được bỏ trống", Toast.LENGTH_SHORT).show();
+        } else {
+            if (dao.checkLogin(strUser, strPass) > 0) {
+                Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                rememberUser(strUser, strPass, chkRememberPass.isChecked());
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("user", strUser);
                 startActivity(intent);
                 finish();
-            }else {
-                Toast.makeText(getApplicationContext(),"Tên đăng nhập và mật khẩu không chính xác",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Tên đăng nhập và mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
             }
         }
     }

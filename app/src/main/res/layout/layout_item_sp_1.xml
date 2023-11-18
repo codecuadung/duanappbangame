@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/mau_item">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imgAnh"
         android:layout_width="150dp"
         android:layout_height="80dp"

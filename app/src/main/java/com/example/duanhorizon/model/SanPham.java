@@ -6,9 +6,27 @@ public class SanPham {
     private String gia;
     private int maLoai;
     private int soLuongTai;
+    private int anh;
 
     public int getMaSanPham() {
         return maSanPham;
+    }
+
+    public int getAnh() {
+        return anh;
+    }
+
+    public void setAnh(int anh) {
+        this.anh = anh;
+    }
+
+    public SanPham(int maSanPham, String tenSanPham, String gia, int maLoai, int soLuongTai, int anh) {
+        this.maSanPham = maSanPham;
+        this.tenSanPham = tenSanPham;
+        this.gia = gia;
+        this.maLoai = maLoai;
+        this.soLuongTai = soLuongTai;
+        this.anh = anh;
     }
 
     public void setMaSanPham(int maSanPham) {

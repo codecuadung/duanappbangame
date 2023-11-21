@@ -28,17 +28,23 @@ public class Fragment_SanPham extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment__san_pham, container, false);
         rcvSP = v.findViewById(R.id.rcvSP);
-        sanPham = new SanPham(1,"PUBG: BATTLEGROUNDS","149000",112023001,10000);
+        // ... (phần khai báo và khởi tạo listSanPham)
+
+        sanPham = new SanPham(1,"PUBG: BATTLEGROUNDS","149000",112023001,10000, R.drawable.img);
         listSanPham.add(sanPham);
-        sanPham = new SanPham(2,"Hunt: Showdown","499000",112023002,1423);
+        sanPham = new SanPham(2,"Hunt: Showdown","499000",112023002,1423, R.drawable.img_2);
         listSanPham.add(sanPham);
-        sanPham = new SanPham(3,"Arizona Sunshine","1299000",112023003,1862);
+        sanPham = new SanPham(3,"Arizona Sunshine","1299000",112023003,1862, R.drawable.img);
         listSanPham.add(sanPham);
-        sanPham = new SanPham(4,"Project Zomboid","499000",112023004,1257);
+        sanPham = new SanPham(4,"Project Zomboid","499000",112023004,1257, R.drawable.img_2);
         listSanPham.add(sanPham);
-        sanPham = new SanPham(5,"New world","749000",112023005,2315);
+        sanPham = new SanPham(5,"New world","749000",112023005,2315, R.drawable.img);
         listSanPham.add(sanPham);
-        sanPham = new SanPham(6,"Remnant","749000",112023006,1459);
+        sanPham = new SanPham(6,"Remnant","749000",112023006,1459, R.drawable.img_2);
+        listSanPham.add(sanPham);
+
+// ... (phần khởi tạo adapterSanPham và RecyclerView)
+
         listSanPham.add(sanPham);
         adapterSanPham = new AdapterSanPham(getActivity(),listSanPham);
         rcvSP.setAdapter(adapterSanPham);

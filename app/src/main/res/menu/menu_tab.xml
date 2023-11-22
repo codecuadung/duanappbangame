@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- bottom_nav_menu.xml -->
+<!-- bottom_nav_menu.xml -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_TheLoai"
+        android:icon="@drawable/baseline_view_carousel_24"
+        android:title="Thể loại" />
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/baseline_home_24"
-        android:title="Home" />
+        android:title="Sản phẩm" />
     <item
-        android:id="@+id/nav_ThongTin"
-        android:icon="@drawable/baseline_menu_book_24"
-        android:title="Dashboard" />
+        android:id="@+id/nav_GioHang"
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="Giỏ hàng" />
     <item
         android:id="@+id/nav_TaiKhoan"
         android:icon="@drawable/baseline_person_pin_24"
-        android:title="Notifications" />
+        android:title="Tài khoản" />
 </menu>
+

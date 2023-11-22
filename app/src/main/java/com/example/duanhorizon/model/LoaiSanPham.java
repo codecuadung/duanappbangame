@@ -3,6 +3,21 @@ package com.example.duanhorizon.model;
 public class LoaiSanPham {
     private int maLoai;
     private String tenLoai;
+    private String anhTL;
+
+    public String getAnhTL() {
+        return anhTL;
+    }
+
+    public void setAnhTL(String anhTL) {
+        this.anhTL = anhTL;
+    }
+
+    public LoaiSanPham(int maLoai, String tenLoai, String anhTL) {
+        this.maLoai = maLoai;
+        this.tenLoai = tenLoai;
+        this.anhTL = anhTL;
+    }
 
     public int getMaLoai() {
         return maLoai;

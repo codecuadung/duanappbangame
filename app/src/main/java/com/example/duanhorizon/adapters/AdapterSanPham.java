@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.duanhorizon.DonHang;
 import com.example.duanhorizon.R;
 import com.example.duanhorizon.model.SanPham;
@@ -42,25 +41,6 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.sanPhamV
         holder.giaSP.setText(sp.getGia());
         holder.maLoai.setText(String.valueOf(sp.getMaLoai()));
         holder.soLuongTai.setText(String.valueOf(sp.getSoLuongTai()));
-
-        // Hiển thị ảnh từ tài nguyên drawable bằng Glide
-        Glide.with(mContext)
-                .load(sp.getAnh()) // Thay "ten_anh" bằng tên ảnh bạn muốn hiển thị
-                .into(holder.imgAnh);
-        holder.imgAnh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Khi ImageButton được nhấp, bắt đầu DonHangActivity
-                Bundle bundle = new Bundle();
-                bundle.putString("tenSP",sp.getTenSanPham());
-                bundle.putString("giaSP",sp.getGia());
-                bundle.putString("soLuongTai", String.valueOf(sp.getSoLuongTai()));
-                bundle.putString("anh", String.valueOf(sp.getAnh()));
-                Intent intent = new Intent(mContext, DonHang.class);
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
-            }
-        });
     }
 
 

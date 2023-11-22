@@ -15,29 +15,17 @@
         <ImageButton
             android:layout_width="300dp"
             android:layout_height="150dp"
-            android:id="@+id/imgSanPham"
+            android:id="@+id/imgTheLoai"
             android:scaleType="fitCenter"
             android:src="@drawable/img_2"
             />
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtTenSP"
-                android:text="Thể loại sinh tồn"
-                android:layout_marginRight="65dp"
-                android:textSize="13sp"
-                android:textAllCaps="true"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="100000 đ"
-                android:id="@+id/txtGiaSP"
-                android:textSize="13sp"/>
-        </LinearLayout>
+            android:id="@+id/txtTheLoai"
+            android:text="Thể loại sinh tồn"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textAllCaps="true"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

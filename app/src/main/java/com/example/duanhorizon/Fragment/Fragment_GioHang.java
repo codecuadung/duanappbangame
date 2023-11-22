@@ -12,10 +12,10 @@ import com.example.duanhorizon.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_ThongTin#newInstance} factory method to
+ * Use the {@link Fragment_GioHang#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment_ThongTin extends Fragment {
+public class Fragment_GioHang extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Fragment_ThongTin extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Fragment_ThongTin() {
+    public Fragment_GioHang() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class Fragment_ThongTin extends Fragment {
      * @return A new instance of fragment Fragment_ThongTin.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_ThongTin newInstance(String param1, String param2) {
-        Fragment_ThongTin fragment = new Fragment_ThongTin();
+    public static Fragment_GioHang newInstance(String param1, String param2) {
+        Fragment_GioHang fragment = new Fragment_GioHang();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class Fragment_ThongTin extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__thong_tin, container, false);
+        return inflater.inflate(R.layout.fragment__gio_hang, container, false);
     }
 }

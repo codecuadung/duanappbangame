@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:background="#2C6E9A"
         android:layout_gravity="bottom"
-        app:menu="@menu/menu_tab" />
+        app:menu="@menu/menu_tab"
+        app:labelVisibilityMode="labeled"/>
 
 </LinearLayout>

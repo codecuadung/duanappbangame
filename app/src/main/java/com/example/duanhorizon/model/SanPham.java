@@ -6,27 +6,27 @@ public class SanPham {
     private String gia;
     private int maLoai;
     private int soLuongTai;
-    private int anh;
+    private String anhSP;
 
-    public int getMaSanPham() {
-        return maSanPham;
+    public String getAnhSP() {
+        return anhSP;
     }
 
-    public int getAnh() {
-        return anh;
+    public void setAnhSP(String anhSP) {
+        this.anhSP = anhSP;
     }
 
-    public void setAnh(int anh) {
-        this.anh = anh;
-    }
-
-    public SanPham(int maSanPham, String tenSanPham, String gia, int maLoai, int soLuongTai, int anh) {
+    public SanPham(int maSanPham, String tenSanPham, String gia, int maLoai, int soLuongTai, String anhSP) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
         this.gia = gia;
         this.maLoai = maLoai;
         this.soLuongTai = soLuongTai;
-        this.anh = anh;
+        this.anhSP = anhSP;
+    }
+
+    public int getMaSanPham() {
+        return maSanPham;
     }
 
     public void setMaSanPham(int maSanPham) {

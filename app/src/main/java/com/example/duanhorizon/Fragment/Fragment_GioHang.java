@@ -17,15 +17,7 @@ import com.example.duanhorizon.R;
  */
 public class Fragment_GioHang extends Fragment {
 
-<<<<<<< HEAD:app/src/main/java/com/example/duanhorizon/Fragment/Fragment_ThongTin.java
-    public Fragment_ThongTin() {
-        // Required empty public constructor
-    }
 
-
-    public static Fragment_ThongTin newInstance() {
-        Fragment_ThongTin fragment = new Fragment_ThongTin();
-=======
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -54,7 +46,6 @@ public class Fragment_GioHang extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
->>>>>>> b57e4928fddd96be69c15e93f750885a9b840773:app/src/main/java/com/example/duanhorizon/Fragment/Fragment_GioHang.java
         return fragment;
     }
 

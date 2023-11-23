@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/mau"
     android:orientation="vertical"
     tools:context=".login">
@@ -85,6 +86,5 @@
             android:text="Hủy"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

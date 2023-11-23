@@ -9,7 +9,8 @@ import android.widget.FrameLayout;
 
 import com.example.duanhorizon.Fragment.Fragment_SanPham;
 import com.example.duanhorizon.Fragment.Fragment_TaiKhoan;
-import com.example.duanhorizon.Fragment.Fragment_ThongTin;
+import com.example.duanhorizon.Fragment.Fragment_GioHang;
+import com.example.duanhorizon.Fragment.Fragment_TheLoai;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.nav_home) {
                 showFragment(new Fragment_SanPham());
                 return true;
-            } else if (item.getItemId() == R.id.nav_ThongTin) {
-                showFragment(new Fragment_ThongTin());
+            } else if (item.getItemId() == R.id.nav_GioHang) {
+                showFragment(new Fragment_GioHang());
+                return true;
+            } else if (item.getItemId() == R.id.nav_TheLoai) {
+                showFragment(new Fragment_TheLoai());
                 return true;
             } else if (item.getItemId() == R.id.nav_TaiKhoan) {
                 showFragment(new Fragment_TaiKhoan());
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Mặc định hiển thị FragmentSanPham khi ứng dụng được khởi chạy
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        bottomNavigationView.setSelectedItemId(R.id.nav_TheLoai);
     }
 
     private void showFragment(Fragment fragment) {

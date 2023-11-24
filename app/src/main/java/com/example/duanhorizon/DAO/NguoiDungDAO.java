@@ -15,7 +15,6 @@ import java.util.List;
 
 public class NguoiDungDAO {
     private SQLiteDatabase db;
-
     public NguoiDungDAO(Context context) {
         DbHelper dbHelper = new DbHelper(context);
         db = dbHelper.getWritableDatabase();

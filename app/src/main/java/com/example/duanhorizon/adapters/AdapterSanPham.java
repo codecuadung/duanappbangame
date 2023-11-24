@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duanhorizon.DonHang;
 import com.example.duanhorizon.R;
 import com.example.duanhorizon.model.SanPham;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,30 +39,25 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.sanPhamV
     public void onBindViewHolder(@NonNull sanPhamViewHolder holder, int position) {
         SanPham sp = arrayList.get(position);
         holder.tenSP.setText(sp.getTenSanPham());
-        holder.giaSP.setText(sp.getGia());
-        holder.maLoai.setText(String.valueOf(sp.getMaLoai()));
-        holder.soLuongTai.setText(String.valueOf(sp.getSoLuongTai()));
+        holder.giaSP.setText(String.valueOf(sp.getGia()));
+        Picasso.get().load(sp.getAnhSP()).into(holder.imgAnh);
     }
-
-
-
     @Override
     public int getItemCount() {
         if (arrayList !=null)
             return arrayList.size();
         return 0;
     }
+    
 
     public static class sanPhamViewHolder extends RecyclerView.ViewHolder {
         private ImageButton imgAnh;
-        private TextView tenSP , giaSP , maLoai , soLuongTai ;
+        private TextView tenSP , giaSP ;
         public sanPhamViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgAnh = itemView.findViewById(R.id.imgAnh);
-            tenSP = itemView.findViewById(R.id.tenSP);
-            giaSP = itemView.findViewById(R.id.giaSP);
-            maLoai = itemView.findViewById(R.id.maLoai);
-            soLuongTai = itemView.findViewById(R.id.soLuongTai);
+            imgAnh = itemView.findViewById(R.id.imgSanPham);
+            tenSP = itemView.findViewById(R.id.txtTenSP);
+            giaSP = itemView.findViewById(R.id.txtGiaSP);
         }
     }
 }

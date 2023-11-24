@@ -3,27 +3,12 @@ package com.example.duanhorizon.model;
 public class SanPham {
     private int maSanPham;
     private String tenSanPham;
-    private String gia;
+    private int gia;
     private int maLoai;
     private int soLuongTai;
     private String anhSP;
-
-    public String getAnhSP() {
-        return anhSP;
-    }
-
-    public void setAnhSP(String anhSP) {
-        this.anhSP = anhSP;
-    }
-
-    public SanPham(int maSanPham, String tenSanPham, String gia, int maLoai, int soLuongTai, String anhSP) {
-        this.maSanPham = maSanPham;
-        this.tenSanPham = tenSanPham;
-        this.gia = gia;
-        this.maLoai = maLoai;
-        this.soLuongTai = soLuongTai;
-        this.anhSP = anhSP;
-    }
+    private String moTa;
+    private String dungLuong;
 
     public int getMaSanPham() {
         return maSanPham;
@@ -41,11 +26,11 @@ public class SanPham {
         this.tenSanPham = tenSanPham;
     }
 
-    public String getGia() {
+    public int getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
@@ -65,12 +50,39 @@ public class SanPham {
         this.soLuongTai = soLuongTai;
     }
 
-    public SanPham(int maSanPham, String tenSanPham, String gia, int maLoai, int soLuongTai) {
+    public String getAnhSP() {
+        return anhSP;
+    }
+
+    public void setAnhSP(String anhSP) {
+        this.anhSP = anhSP;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
+
+    public String getDungLuong() {
+        return dungLuong;
+    }
+
+    public void setDungLuong(String dungLuong) {
+        this.dungLuong = dungLuong;
+    }
+
+    public SanPham(int maSanPham, String tenSanPham, int gia, int maLoai, int soLuongTai, String anhSP, String moTa, String dungLuong) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;
         this.gia = gia;
         this.maLoai = maLoai;
         this.soLuongTai = soLuongTai;
+        this.anhSP = anhSP;
+        this.moTa = moTa;
+        this.dungLuong = dungLuong;
     }
 
     public SanPham() {

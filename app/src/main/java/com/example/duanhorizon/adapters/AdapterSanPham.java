@@ -22,7 +22,10 @@ import java.util.ArrayList;
 public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.sanPhamViewHolder>{
     private Context mContext ;
     private ArrayList<SanPham> arrayList;
-
+    private ArrayList<SanPham>sanPhamList;
+    public void setSanPhamList(ArrayList<SanPham> sanPhamList){
+        this.sanPhamList = sanPhamList;
+    }
     public AdapterSanPham(Context mContext, ArrayList<SanPham> arrayList) {
         this.mContext = mContext;
         this.arrayList = arrayList;

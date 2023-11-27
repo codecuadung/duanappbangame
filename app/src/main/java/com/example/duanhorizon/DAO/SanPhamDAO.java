@@ -76,10 +76,5 @@ public class SanPhamDAO {
         List<SanPham>list = getData(sql,id);
         return list.get(0);
     }
-    public List<SanPham> getTheLoaiSanPham(int maLoai){
-        String sql = "SELECT * FROM SanPham WHERE maLoai = ?";
-        String[] selectionArgs = {String.valueOf(maLoai)};
-        return getData(sql, selectionArgs);
-    }
 
 }

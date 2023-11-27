@@ -3,9 +3,11 @@ package com.example.duanhorizon.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +38,30 @@ public class Fragment_TheLoai extends Fragment {
         listTheloai = new ArrayList<>();
         adapter = new AdapterTheLoai(listTheloai);
 
+        AdapterTheLoai.OnItemClickListener clickListener = new AdapterTheLoai.OnItemClickListener() {
+            @Override
+            public void onItemClick(LoaiSanPham loaiSanPham) {
+                Fragment_TheLoai.this.onItemClick(loaiSanPham);
+            }
+        };
+        adapter.setOnItemClickListener(clickListener);
         //load dữ liệu từ csdl
         listTheloai.addAll(dao.getAll());
         rcv.setAdapter(adapter);
         return view;
+    }
+    public void onItemClick(LoaiSanPham loaiSanPham){
+        Log.d("DEBUG", "MaLoai Clicked: " + loaiSanPham.getMaLoai());
+        Fragment_SanPham fragmentSanPham = new Fragment_SanPham();
+        //Truyền dữ liệu theloai
+        Bundle bundle = new Bundle();
+        bundle.putString("maLoai", String.valueOf(loaiSanPham.getMaLoai()));
+        fragmentSanPham.setArguments(bundle);
+
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, fragmentSanPham);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }

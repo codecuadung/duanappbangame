@@ -31,17 +31,48 @@ public class Fragment_SanPham extends Fragment {
         View v = inflater.inflate(R.layout.fragment__san_pham, container, false);
         rcvSP = v.findViewById(R.id.rcvSP);
         sanPhamDAO = new SanPhamDAO(getActivity());
-        listSanPham.addAll(sanPhamDAO.getAll());
+
+        // Nhận dữ liệu từ Bundle
+        Bundle bundle = getArguments();
 
         // Khởi tạo adapter và gán nó vào RecyclerView
         adapterSanPham = new AdapterSanPham(getActivity(), listSanPham);
+        listSanPham.addAll(sanPhamDAO.getAll());
         rcvSP.setAdapter(adapterSanPham);
         rcvSP.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Log.d("DEBUG", "Total SanPham: " + listSanPham.size());
+        if (bundle != null) {
+            String loaiSanPhamId = bundle.getString("maLoai");
 
-        // Thông báo rằng dữ liệu đã thay đổi
-        adapterSanPham.notifyDataSetChanged();
+            if (loaiSanPhamId != null) {
+
+                // Hiển thị sản phẩm của loại đã chọn
+                hienThiLoaiSP(loaiSanPhamId);
+
+                // Thông báo rằng dữ liệu đã thay đổi
+                adapterSanPham.notifyDataSetChanged();
+            }
+        }
 
         return v;
     }
+
+
+    private void hienThiLoaiSP(String loaiSanPhamID) {
+        ArrayList<SanPham> loaiList = new ArrayList<>();
+        for (SanPham sanPham : listSanPham) {
+            if (sanPham.getMaLoai() == Integer.parseInt(loaiSanPhamID)) {
+                loaiList.add(sanPham);
+            }
+        }
+
+        // Cập nhật dữ liệu trong listSanPham mà không thay đổi đối tượng trỏ đến
+        listSanPham.clear();
+        listSanPham.addAll(loaiList);
+
+        adapterSanPham.setSanPhamList(listSanPham);
+        adapterSanPham.notifyDataSetChanged();
+    }
+
 
 }

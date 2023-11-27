@@ -17,10 +17,18 @@ import java.util.List;
 
 public class AdapterTheLoai extends RecyclerView.Adapter<AdapterTheLoai.TheLoaiViewHolder> {
     private List<LoaiSanPham> listLoaiSanPham;
+    private OnItemClickListener onItemClickListener;
 
     public AdapterTheLoai(List<LoaiSanPham> listLoaiSanPham) {
         this.listLoaiSanPham = listLoaiSanPham;
     }
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.onItemClickListener = listener;
+    }
+    public interface OnItemClickListener {
+        void onItemClick(LoaiSanPham loaiSanPham);
+    }
+
 
     @NonNull
     @Override
@@ -36,7 +44,9 @@ public class AdapterTheLoai extends RecyclerView.Adapter<AdapterTheLoai.TheLoaiV
         Picasso.get().load(loaiSanPham.getAnhTL()).into(holder.imgTheLoai);
 
         holder.txtTheLoai.setText(loaiSanPham.getTenLoai());
-
+        holder.imgTheLoai.setOnClickListener(view -> {
+            onItemClickListener.onItemClick(loaiSanPham);
+        });
     }
 
     @Override

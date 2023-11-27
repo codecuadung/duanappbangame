@@ -48,6 +48,9 @@ public class SanPhamDAO {
     public int delete(String id){
         return db.delete("SanPham","maSanPham=?",new String[]{id});
     }
+    public int deleteloai(int maLoai) {
+        return db.delete("SanPham", "maLoai=?", new String[]{String.valueOf(maLoai)});
+    }
     @SuppressLint("Range")
     public List<SanPham> getData(String sql, String...selectionArgs){
         List<SanPham>list = new ArrayList<>();
@@ -76,5 +79,6 @@ public class SanPhamDAO {
         List<SanPham>list = getData(sql,id);
         return list.get(0);
     }
+
 
 }

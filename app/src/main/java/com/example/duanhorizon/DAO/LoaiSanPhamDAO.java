@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duanhorizon.database.DbHelper;
 import com.example.duanhorizon.model.LoaiSanPham;
+import com.example.duanhorizon.model.SanPham;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,20 +22,18 @@ public class LoaiSanPhamDAO {
     }
     public long insert(LoaiSanPham obj){
         ContentValues values = new ContentValues();
-        values.put("maLoai",obj.getMaLoai());
         values.put("tenLoai",obj.getTenLoai());
         values.put("anhTL", obj.getAnhTL());
         return db.insert("LoaiSanPham",null,values);
     }
     public int update(LoaiSanPham obj){
         ContentValues values = new ContentValues();
-        values.put("maLoai",obj.getMaLoai());
         values.put("tenLoai",obj.getTenLoai());
         values.put("anhTL", obj.getAnhTL());
         return db.update("LoaiSanPham",values,"maLoai=?",new String[]{String.valueOf(obj.getMaLoai())});
     }
-    public int delete(String id){
-        return db.delete("LoaiSanPham","maLoai=?",new String[]{id});
+    public int delete(String id) {
+        return db.delete("LoaiSanPham", "maLoai=?", new String[]{id});
     }
     @SuppressLint("Range")
     public List<LoaiSanPham> getData(String sql, String...selectionArgs){

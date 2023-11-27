@@ -24,7 +24,7 @@ public class NguoiDungDAO {
         values.put("maNguoiDung", obj.getMaNguoiDung());
         values.put("tenNguoiDung", obj.getTenNguoiDung());
         values.put("matKhau", obj.getMatKhau());
-        values.put("vaiTro",1);
+        values.put("vaiTro",2);
         return db.insert("NguoiDung", null, values);
     }
     public long updatePass(NguoiDung obj) {
@@ -70,7 +70,6 @@ public class NguoiDungDAO {
         if(list.size()==0)
             return -1;
         return 1;
-
     }
 
 }

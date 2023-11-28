@@ -4,10 +4,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.duanhorizon.model.NguoiDung;
+import com.example.duanhorizon.model.SanPham;
 
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "APPBANGAME";
@@ -131,5 +133,50 @@ public class DbHelper extends SQLiteOpenHelper {
         }
 
         return nguoiDung;
+    }
+    // Phương thức để lấy thông tin sản phẩm theo mã sản phẩm
+    public SanPham getSanPham(String maSP) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        SanPham sanPham = null;
+
+        String[] columns = {"maSanPham", "tenSanPham", "gia", "soLuongTai", "maLoai", "dungLuong", "moTa", "anhSP"};
+        String selection = "maSanPham=?";
+        String[] selectionArgs = {maSP};
+
+        Cursor cursor = db.query("SanPham", columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Lấy thông tin từ cursor và tạo đối tượng sản phẩm
+            int maSanPhamColumnIndex = cursor.getColumnIndex("maSanPham");
+            int tenSanPhamColumnIndex = cursor.getColumnIndex("tenSanPham");
+            int giaColumnIndex = cursor.getColumnIndex("gia");
+            int soLuongTaiColumnIndex = cursor.getColumnIndex("soLuongTai");
+            int maLoaiColumnIndex = cursor.getColumnIndex("maLoai");
+            int dungLuongColumnIndex = cursor.getColumnIndex("dungLuong");
+            int moTaColumnIndex = cursor.getColumnIndex("moTa");
+            int anhSPColumnIndex = cursor.getColumnIndex("anhSP");
+
+            int maSanPham = cursor.getInt(maSanPhamColumnIndex);
+            String tenSanPham = cursor.getString(tenSanPhamColumnIndex);
+            int gia = cursor.getInt(giaColumnIndex);
+            int soLuongTai = cursor.getInt(soLuongTaiColumnIndex);
+            int maLoai = cursor.getInt(maLoaiColumnIndex);
+            String dungLuong = cursor.getString(dungLuongColumnIndex);
+            String moTa = cursor.getString(moTaColumnIndex);
+            String anhSP = cursor.getString(anhSPColumnIndex);
+            Log.d("SanPhamDebug", "maSanPham: " + maSanPham);
+            Log.d("SanPhamDebug", "tenSanPham: " + tenSanPham);
+            Log.d("SanPhamDebug", "gia: " + gia);
+            Log.d("SanPhamDebug", "soLuongTai: " + soLuongTai);
+            Log.d("SanPhamDebug", "maLoai: " + maLoai);
+            Log.d("SanPhamDebug", "dungLuong: " + dungLuong);
+            Log.d("SanPhamDebug", "moTa: " + moTa);
+            Log.d("SanPhamDebug", "anhSP: " + anhSP);
+            sanPham = new SanPham(maSanPham,  tenSanPham, gia, maLoai,  soLuongTai,  anhSP, moTa, dungLuong);
+
+            cursor.close();
+        }
+
+        return sanPham;
     }
 }

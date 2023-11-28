@@ -42,8 +42,18 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.sanPhamV
     public void onBindViewHolder(@NonNull sanPhamViewHolder holder, int position) {
         SanPham sp = arrayList.get(position);
         holder.tenSP.setText(sp.getTenSanPham());
-        holder.giaSP.setText(String.valueOf(sp.getGia()));
+        holder.giaSP.setText(String.valueOf(sp.getGia())+"VND");
         Picasso.get().load(sp.getAnhSP()).into(holder.imgAnh);
+        holder.imgAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,DonHang.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("maSP", String.valueOf(sp.getMaSanPham()));
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

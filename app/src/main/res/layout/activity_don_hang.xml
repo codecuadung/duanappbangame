@@ -11,16 +11,19 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="2">
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:src="@drawable/img_2"
-
-            android:id="@+id/imgSanPham"/>
+            android:scaleType="fitCenter"
+            android:id="@+id/imgSanPhamdonhang"/>
         <LinearLayout
             android:layout_width="200dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView

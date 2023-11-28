@@ -40,7 +40,6 @@ public class Fragment_SanPham extends Fragment {
         listSanPham.addAll(sanPhamDAO.getAll());
         rcvSP.setAdapter(adapterSanPham);
         rcvSP.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Log.d("DEBUG", "Total SanPham: " + listSanPham.size());
         if (bundle != null) {
             String loaiSanPhamId = bundle.getString("maLoai");
 
